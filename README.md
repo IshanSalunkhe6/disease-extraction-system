@@ -3,6 +3,12 @@
 **Live Demo:** [https://disease-extraction-system.vercel.app/](https://disease-extraction-system.vercel.app/)
 
 > ⚠ **Note:** First request after inactivity may take \~5–20s due to free-tier cold start on Vercel & Hugging Face Spaces.
+---
+## 🖼 Sample Output
+
+Below is an example of a processed PDF, with detected diseases highlighted and listed:
+
+![Sample Output](assets/sample-output.png)
 
 ---
 
@@ -10,14 +16,6 @@
 
 A **disease term extraction system** that identifies and highlights disease mentions in biomedical text or PDF files.
 Powered by the fine-tuned **[BioBERT NER model](https://huggingface.co/Ishan0612/biobert-ner-disease-ncbi)**, this tool helps medical students, researchers, and healthcare professionals quickly scan documents for relevant medical conditions.
-
----
-
-## 🖼 Sample Output
-
-Below is an example of a processed PDF, with detected diseases highlighted and listed:
-
-![Sample Output](assets/sample-output.png)
 
 ---
 
