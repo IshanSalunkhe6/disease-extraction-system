@@ -21,6 +21,14 @@ except Exception:
     ENABLE_OCR = False
 # -------------------------------------------------------------
 
+# ---------- Highlight styling (extra light yellow) ----------
+# RGB must be floats in [0,1]. Opacity in [0,1].
+HL_R = float(os.getenv("HL_R", "1.0"))    # R
+HL_G = float(os.getenv("HL_G", "1.0"))    # G
+HL_B = float(os.getenv("HL_B", "0.90"))   # B
+HL_OPACITY = float(os.getenv("HL_OPACITY", "0.12"))  # softer transparency
+# -------------------------------------------------------------
+
 def extract_text_from_pdf(pdf_bytes: bytes) -> str:
     doc = fitz.open(stream=pdf_bytes, filetype="pdf")
     pages = []
@@ -75,6 +83,9 @@ def highlight_terms_in_pdf(pdf_bytes: bytes, terms: list[str], min_single_len: i
                     for r in rects:
                         ann = page.add_highlight_annot(r)
                         if ann:
+                            # ↓↓↓ very light yellow ↓↓↓
+                            ann.set_colors(stroke=None, fill=(HL_R, HL_G, HL_B))
+                            ann.set_opacity(HL_OPACITY)
                             ann.update()
 
         try:
