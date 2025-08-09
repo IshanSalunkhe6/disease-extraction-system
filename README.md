@@ -39,7 +39,7 @@ Below is an example of a processed PDF, with detected diseases highlighted and l
 * **Frontend:** Next.js (Vercel)
 * **Backend:** FastAPI (Hugging Face Spaces)
 * **NLP:** BioBERT fine-tuned for Disease NER
-* **PDF Processing:** PyMuPDF, optional Tesseract OCR
+* **PDF Processing:** PyMuPDF
 * **Deployment:** Vercel + Hugging Face Spaces (Docker)
 
 ---
@@ -72,13 +72,3 @@ npm run dev
 ```
 
 The frontend will run at `http://localhost:3000`
-
-### 4️⃣ Environment Variables
-
-In `frontend/.env.local`
-
-```
-NEXT_PUBLIC_API=http://127.0.0.1:8000
-```
-
----
