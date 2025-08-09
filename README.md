@@ -17,7 +17,7 @@ Powered by the fine-tuned **[BioBERT NER model](https://huggingface.co/Ishan0612
 
 Below is an example of a processed PDF, with detected diseases highlighted and listed:
 
-![Sample Output](d10b7725-5cd7-4f4c-8585-7caf8667316d.png)
+![Sample Output](assets/sample-output.png.png)
 
 ---
 
