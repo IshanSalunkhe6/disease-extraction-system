@@ -1,0 +1,11 @@
+fastapi[standard]
+uvicorn[standard]
+transformers
+torch
+pymupdf
+pdfminer.six
+python-multipart
+huggingface-hub
+pydantic
+pytesseract
+pillow

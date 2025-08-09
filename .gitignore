@@ -1,0 +1,5 @@
+# ignore big artifacts
+backend/biobert-onnx/
+venv-fastapi/
+__pycache__/
+static/

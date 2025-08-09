@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+/* Brand colors */
+@theme {
+  --color-brand-50:#f4f8ff; --color-brand-100:#e7efff; --color-brand-200:#cfe0ff;
+  --color-brand-300:#a9c6ff; --color-brand-400:#74a6ff; --color-brand-500:#3b82f6;
+  --color-brand-600:#2563eb; --color-brand-700:#1d4ed8; --color-brand-800:#0f3fa8; --color-brand-900:#0b2f7c;
+  --color-teal-500:#14b8a6; --color-teal-600:#0d9488;
+}
+
+:root { color-scheme: light; }
+html, body { @apply text-gray-900 bg-white; }
+* { -webkit-tap-highlight-color: transparent; }
+img, svg { user-select: none; -webkit-user-drag: none; }
+
+/* Animated gradient title */
+@keyframes gradient-flow { 0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%} }
+.gradient-text{
+  background:linear-gradient(90deg,var(--color-brand-500),var(--color-brand-700),var(--color-teal-500));
+  background-size:200% 200%;
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+  animation:gradient-flow 8s ease-in-out infinite;
+}
+
+/* --- ECG: continuous sweep --- */
+@keyframes ecg-sweep-right {
+  from { transform: translateX(-50%); }  /* off left */
+  to   { transform: translateX(0); }     /* aligned; loop repeats */
+}
+.ecg-track{
+  position:absolute; inset:0;
+  width:200%; height:100%;
+  display:flex; gap:0;
+  animation:ecg-sweep-right 7s linear infinite; /* increase for slower */
+  will-change:transform;
+}
+.ecg-segment{ flex:none; width:50%; height:100%; }
+.ecg-path{
+  stroke: rgba(59,130,246,0.55);   /* lighter stroke */
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  filter: drop-shadow(0 0 4px rgba(59,130,246,0.28));
+}
+
+/* Glass + shadow */
+.glass { background: rgba(255,255,255,.86); backdrop-filter: blur(6px); }
+.soft-shadow { box-shadow: 0 10px 30px rgba(37,99,235,.10), 0 4px 14px rgba(20,184,166,.08); }
+
+/* Static plus wallpaper (matches your old design) */
+.medical-wallpaper {
+  --bg: url("data:image/svg+xml;utf8,\
+<svg xmlns='http://www.w3.org/2000/svg' width='72' height='72' viewBox='0 0 72 72'>\
+  <defs>\
+    <linearGradient id='g' x1='0' y1='0' x2='1' y2='1'>\
+      <stop offset='0%' stop-color='%2374a6ff'/>\
+      <stop offset='60%' stop-color='%233b82f6'/>\
+      <stop offset='100%' stop-color='%230fb5a8'/>\
+    </linearGradient>\
+  </defs>\
+  <rect width='72' height='72' fill='white'/>\
+  <path d='M32 8h8v14h14v8H40v14h-8V30H18v-8h14V8z' fill='url(%23g)' fill-opacity='.16'/>\
+  <path d='M-4 44h8v12H16v8H4v12h-8V64h-12v-8H-4V44z' fill='url(%23g)' fill-opacity='.10'/>\
+</svg>");
+  background-image: var(--bg);
+  background-size: 72px 72px;
+  background-repeat: repeat;
+  opacity: .92;
+}
+
+/* Scrollbars */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-thumb { background-color: rgba(37,99,235,.4); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background-color: rgba(37,99,235,.6); }
